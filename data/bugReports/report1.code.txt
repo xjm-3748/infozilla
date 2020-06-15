@@ -1,0 +1,51 @@
+private String[] qLabels = {"Jan-Mar","Apr-Jun","Jul-Sep","Oct-Dec"};
+private List<HealthRecord> healthRecords = new LinkedList<HealthRecord>();
+/**
+     * Lets the JSP know if there is any data to be displayed.
+     *
+     * @return False if there is no data to be displayed.
+     */
+public boolean hasData() {
+    	Date threeYearsAgo = new Date();
+    	Date recDate;
+    	String dateStr;
+    	DateFormat year = new SimpleDateFormat("yyyy");
+    	DateFormat rest = new SimpleDateFormat("/MM/dd HHmma");
+    	DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HHmma");
+		dateStr = year.format(threeYearsAgo);
+		dateStr = "" + (Integer.parseInt(dateStr) - 3);
+		dateStr += rest.format(threeYearsAgo);
+		try {
+			threeYearsAgo = sdf.parse(dateStr);
+		} catch (ParseException e) {
+			return false;
+		}
+
+    	for (HealthRecord hr : healthRecords) {
+    		recDate = new Date(hr.getDateRecorded().getTime());
+    		if (recDate.before(threeYearsAgo))
+    			continue;
+    		else
+    			return true;
+    	}
+
+    	return false;
+    }
+/**
+    		 * @return A unique ID for this DatasetProducer
+    		 */
+public String getProducerId() {
+    			return "DiagnosisTrendData DatasetProducer";
+    		}
+/**
+    	     * @return A link target for a special data item.
+    	     */
+public String generateLink(Object data, int series, Object category) {
+    	        return seriesName[series];
+    	    }
+/**
+    		 * @see java.lang.Object#finalize()
+    		 */
+protected void finalize() throws Throwable {
+    			super.finalize();
+    		}

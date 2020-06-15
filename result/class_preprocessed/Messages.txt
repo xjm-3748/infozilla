@@ -1,0 +1,1 @@
+packag ncsu csc itrust import java util resourc import java util resourc bundl public class messag privat static final string ncsu csc itrust messag privat static final resourc bundl resourc bundl bundl local instanc current local public static string string string key tri return string key catch resourc return key 

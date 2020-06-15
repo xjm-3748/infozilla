@@ -1,0 +1,64 @@
+$natural$  This is an example of bug report, contains natural language and source code$$
+$code$  private String[] qLabels = {"Jan-Mar","Apr-Jun","Jul-Sep","Oct-Dec"};$$
+
+$natural$    This will be the list of health records$$
+$code$    private List<HealthRecord> healthRecords = new LinkedList<HealthRecord>();$$
+
+$natural$    This will be the name of the prescription or immunization under analysis$$
+$natural$    private String codeName;$$
+
+$code$    /**$$
+$code$     * Lets the JSP know if there is any data to be displayed.$$
+$code$     *$$
+$code$     * @return False if there is no data to be displayed.$$
+$code$     */$$
+$code$    public boolean hasData() {$$
+$code$    	Date threeYearsAgo = new Date();$$
+$code$    	Date recDate;$$
+$code$    	String dateStr;$$
+$code$    	DateFormat year = new SimpleDateFormat("yyyy");$$
+$code$    	DateFormat rest = new SimpleDateFormat("/MM/dd HHmma");$$
+$code$    	DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HHmma");$$
+$code$		dateStr = year.format(threeYearsAgo);$$
+$code$		dateStr = "" + (Integer.parseInt(dateStr) - 3);$$
+$code$		dateStr += rest.format(threeYearsAgo);$$
+$code$		try {$$
+$code$			threeYearsAgo = sdf.parse(dateStr);$$
+$code$		} catch (ParseException e) {$$
+$code$			return false;$$
+$code$		}$$
+
+$code$    	for (HealthRecord hr : healthRecords) {$$
+$code$    		recDate = new Date(hr.getDateRecorded().getTime());$$
+$code$    		if (recDate.before(threeYearsAgo))$$
+$code$    			continue;$$
+$code$    		else$$
+$code$    			return true;$$
+$code$    	}$$
+
+$code$    	return false;$$
+$code$    }$$
+$natural$    Copy from charts/HealthData.java for a test before HealthRecord getTime$$
+$code$    /**$$
+$code$    		 * @return A unique ID for this DatasetProducer$$
+$code$    		 */$$
+$code$    		public String getProducerId() {$$
+$code$    			return "DiagnosisTrendData DatasetProducer";$$
+$code$    		}$$
+
+$code$    	    /**$$
+$code$    	     * @return A link target for a special data item.$$
+$code$    	     */$$
+$code$    	    public String generateLink(Object data, int series, Object category) {$$
+$code$    	        return seriesName[series];$$
+$code$    	    }$$
+
+$code$    		/**$$
+$code$    		 * @see java.lang.Object#finalize()$$
+$code$    		 */$$
+$natural$    		@Override$$
+$code$    		protected void finalize() throws Throwable {$$
+$code$    			super.finalize();$$
+$code$    		}$$
+
+$natural$//Part of DiagnosisTrendData for test$$

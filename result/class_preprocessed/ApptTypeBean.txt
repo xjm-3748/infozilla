@@ -1,0 +1,1 @@
+packag ncsu csc itrust bean public class appt type bean privat string privat int durat public appt type bean null durat public appt type bean string int durat durat durat public string return public void set string public int durat return durat public void set durat int durat durat durat 

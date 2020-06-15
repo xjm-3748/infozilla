@@ -1,0 +1,1 @@
+indripath=C:\Users\82646\Downloads\Indri_5.3\bin\

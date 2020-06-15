@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infozilla-output>
+  <Patches amount="0" />
+  <Stacktraces amount="0" />
+  <SourceCodeRegions amount="10">
+    <source_code type="assignment">
+      <location start="78" end="149" />
+      <code>private String[] qLabels = {"Jan-Mar","Apr-Jun","Jul-Sep","Oct-Dec"};</code>
+    </source_code>
+    <source_code type="assignment">
+      <location start="195" end="273" />
+      <code>private List&lt;HealthRecord&gt; healthRecords = new LinkedList&lt;HealthRecord&gt;();</code>
+    </source_code>
+    <source_code type="multicomment">
+      <location start="381" end="525" />
+      <code>/**
+     * Lets the JSP know if there is any data to be displayed.
+     *
+     * @return False if there is no data to be displayed.
+     */</code>
+    </source_code>
+    <source_code type="functiondef">
+      <location start="526" end="1268" />
+      <code>public boolean hasData() {
+    	Date threeYearsAgo = new Date();
+    	Date recDate;
+    	String dateStr;
+    	DateFormat year = new SimpleDateFormat("yyyy");
+    	DateFormat rest = new SimpleDateFormat("/MM/dd HHmma");
+    	DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HHmma");
+		dateStr = year.format(threeYearsAgo);
+		dateStr = "" + (Integer.parseInt(dateStr) - 3);
+		dateStr += rest.format(threeYearsAgo);
+		try {
+			threeYearsAgo = sdf.parse(dateStr);
+		} catch (ParseException e) {
+			return false;
+		}
+
+    	for (HealthRecord hr : healthRecords) {
+    		recDate = new Date(hr.getDateRecorded().getTime());
+    		if (recDate.before(threeYearsAgo))
+    			continue;
+    		else
+    			return true;
+    	}
+
+    	return false;
+    }</code>
+    </source_code>
+    <source_code type="multicomment">
+      <location start="1345" end="1416" />
+      <code>/**
+    		 * @return A unique ID for this DatasetProducer
+    		 */</code>
+    </source_code>
+    <source_code type="functiondef">
+      <location start="1417" end="1514" />
+      <code>public String getProducerId() {
+    			return "DiagnosisTrendData DatasetProducer";
+    		}</code>
+    </source_code>
+    <source_code type="multicomment">
+      <location start="1515" end="1600" />
+      <code>/**
+    	     * @return A link target for a special data item.
+    	     */</code>
+    </source_code>
+    <source_code type="functiondef">
+      <location start="1601" end="1731" />
+      <code>public String generateLink(Object data, int series, Object category) {
+    	        return seriesName[series];
+    	    }</code>
+    </source_code>
+    <source_code type="multicomment">
+      <location start="1732" end="1794" />
+      <code>/**
+    		 * @see java.lang.Object#finalize()
+    		 */</code>
+    </source_code>
+    <source_code type="functiondef">
+      <location start="1811" end="1894" />
+      <code>protected void finalize() throws Throwable {
+    			super.finalize();
+    		}</code>
+    </source_code>
+  </SourceCodeRegions>
+  <Enumerations amount="0" />
+</infozilla-output>
+

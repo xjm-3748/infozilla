@@ -1,0 +1,20 @@
+  This is an example of bug report, contains natural language and source code
+
+
+    This will be the list of health records
+
+
+    This will be the name of the prescription or immunization under analysis
+    private String codeName;
+
+
+    Copy from charts/HealthData.java for a test before HealthRecord getTime
+
+
+
+
+
+    		@Override
+
+
+//Part of DiagnosisTrendData for test
