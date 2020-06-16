@@ -29,3 +29,10 @@ data/reportsForVSM文件夹下的report1.all.txt为源代码部分和自然语�
 运行后的生成物多了一些，不过我觉得这个和你这边是透明的，还是提一下：
 1. data/reportsForBLUiR目录下是对bugReport脚本化的结果。
 2. result/BLUiRRunOut目录下存放的是算法生成的中间产物，包括Index，retrieve的中间结果。
+
+
+
+添加gradle项目，然后工具栏里build就可以了。
+io.kuy.infozilla.vsm_algorithm.util.FileIOUtil.java 有报错，导入一下包就可以了;
+io.kuy.infozilla.cli.Main.java中是使用的示例
+主要方法在io.kuy.infozilla.interact_interface.InteractClass
