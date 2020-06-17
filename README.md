@@ -36,3 +36,4 @@ data/reportsForVSM文件夹下的report1.all.txt为源代码部分和自然语�
 io.kuy.infozilla.vsm_algorithm.util.FileIOUtil.java 有报错，导入一下包就可以了;
 io.kuy.infozilla.cli.Main.java中是使用的示例
 主要方法在io.kuy.infozilla.interact_interface.InteractClass
+文本分类工具的原地址是https://github.com/kuyio/infozilla
